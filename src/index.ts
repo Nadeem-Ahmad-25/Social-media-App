@@ -4,7 +4,7 @@ import tweetRoutes from './routes/tweetRoutes';
 
 const app = express();
 app.use(express.json());
-app.use('/users',userRoutes);
+app.use('/user',userRoutes);
 app.use('/tweet',tweetRoutes);
 app.get('/',(re,res)=> {
     res.send("Hello world");
