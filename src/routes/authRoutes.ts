@@ -1,6 +1,9 @@
 import { Router } from "express";
 import jwt from 'jsonwebtoken';
 import { Prisma, PrismaClient } from "@prisma/client";
+import { sendEmailToken } from "../services/emailServ";
+
+
 const prisma = new PrismaClient();
 const router = Router();
 
@@ -42,6 +45,7 @@ try{
         },
     });
     console.log(createdToken);
+    await sendEmailToken(email,emailToken);
     res.sendStatus(200);
 }catch(err) {
     console.log(err);
