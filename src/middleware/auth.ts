@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 type AuthRequest = Request & {user?: User};
 
-const SECRET_KET= "123Secret";
+const SECRET_KET= process.env.SECRET_KET || "supersecret";
 export async function authenticateToken(
     req:AuthRequest, 
     res:Response, 

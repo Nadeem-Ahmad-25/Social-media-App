@@ -6,7 +6,7 @@ const router = Router();
 
 const EMAIL_TOKEN_EXPIRATION_TIMEOUT = 10;
 const AUTHENTICATION_TOKEN_EXPIRATION_TIMEOUT = 12;
-const SECRET_KET= "123Secret";
+const SECRET_KET= process.env.SECRET_KET || "supersecret";
 
 function generateEmailToken(): string {
     return Math.floor(100000 + Math.random() *900000).toString();
